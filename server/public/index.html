@@ -11,14 +11,25 @@
 </head>
 <body>
     <h1>tasks</h1>
-    <form>
-        <input>
+    <form id="task-form">
+        <label for="task-input">Task</label>
+            <input id="task-input" type="text">
+        <label for="task-importance">Importance</label>
+            <select id="task-importance" type="text">
+                <option value="low">Low</option>
+                <option value="standard">Standard</option>
+                <option value="high">High</option>
+                <option value="urgent">Urgent</option>
+        <label for="task-date"></label>
+            <input id="task-date" type="date">
+        <label for="enter-task"></label>
+            <input id="enter-task" type="submit" value="Enter Task">
     </form>
     <table>
         <thead>
             <tr>
-                <td>task</td>
-                <td>Urgency</td>
+                <td>Task At Hand</td>
+                <td>Importance</td>
                 <td>Due Date</td>
             </tr>
         </thead>

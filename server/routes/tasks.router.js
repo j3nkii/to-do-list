@@ -8,6 +8,7 @@ const pool = new pg.Pool({
 });
 
 
+
 //Get Tasks endpoint
 tasksRouter.get('/', (req, res) => {
     let queryText = 'SELECT * FROM "tasks" ORDER BY "importance";';
@@ -18,6 +19,28 @@ tasksRouter.get('/', (req, res) => {
     console.log('error getting books', error);
     res.sendStatus(500);
     });
+});
+
+
+tasksRouter.post('/', (req, res) => {
+    //console.log(req.body);
+    const queryText = `
+    INSERT INTO tasks 
+    ("task", "importance", "dueBy")
+    VALUES ($1, $2, $3);` //SQL code here, use $1, $2 in conjunction with the query params
+    let queryParams = [
+        req.body.package.task,
+        req.body.package.importance,
+        req.body.package.dueBy
+    ];
+    console.log(queryParams);
+    pool.query(queryText, queryParams)
+        .then((bdRes) => {
+            res.sendStatus(201) //created
+        })
+        .catch((err) => {
+            console.log('failed:', err);
+        });
 });
 
 

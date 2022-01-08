@@ -9,6 +9,6 @@ INSERT INTO "tasks"
 	("task", "importance", "due-by") 
 VALUES 
 	('Make Dinner', 'High', 'today'),
-	('Drink beer', 'Very High', 'now'),
+	('Drink beer', 'Very High', 'now');
 
 SELECT * FROM "tasks";
