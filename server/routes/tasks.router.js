@@ -11,7 +11,8 @@ const pool = new pg.Pool({
 
 //Get Tasks endpoint
 tasksRouter.get('/', (req, res) => {
-    let queryText = 'SELECT * FROM "tasks" WHERE "completed" = FALSE ORDER BY "importance";';
+    //add id? if else statment done / not done
+    let queryText = 'SELECT * FROM "tasks" ORDER BY "importance";';
     pool.query(queryText).then(result => {
     res.send(result.rows);
     })
@@ -53,6 +54,23 @@ tasksRouter.delete('/:id', (req, res) => {
         res.sendStatus(204);
     }).catch((err) => {
         console.log('DELETE failed:', err);
+    })
+})
+
+
+
+tasksRouter.put('/:id', (req, res) => {
+    taco = req.body
+    console.log(taco)
+    const queryText = `UPDATE tasks SET completed = $1 WHERE id = $2`
+    let queryParams = [
+        req.body.completed,
+        req.params.id
+    ];
+    pool.query(queryText, queryParams).then((dbRes) => {
+        res.sendStatus(201)
+    }).catch((err) => {
+        console.log(err);
     })
 })
 

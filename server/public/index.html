@@ -7,10 +7,10 @@
     <script src="./jquery-3.6.0.min.js"></script>
     <script src="./client.js"></script>
     <link rel="stylesheet" href="./styles.css">
-    <title>Document</title>
+    <title>TaskCompletor3000</title>
 </head>
 <body>
-    <h1>tasks</h1>
+    <h1>TODO List</h1>
     <form id="task-form">
         <label for="task-input">Task</label>
             <input id="task-input" type="text">
@@ -25,17 +25,33 @@
         <label for="enter-task"></label>
             <input id="enter-task" type="submit" value="Enter Task">
     </form>
+    <h2>Tasks TODO</h2>
     <table>
         <thead>
             <tr>
+                <td>Completed</td>
                 <td>Task At Hand</td>
                 <td>Importance</td>
                 <td>Due Date</td>
-                <td>Completed</td>
                 <td>Delete</td>
             </tr>
         </thead>
         <tbody id="taskTable">
+
+        </tbody>
+    </table>
+    <h2>DONE Tasks</h2>
+    <table>
+        <thead>
+            <tr>
+                <td>Completed</td>
+                <td>Task At Hand</td>
+                <td>Importance</td>
+                <td>Due Date</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        <tbody id="doneTaskTable">
 
         </tbody>
     </table>
