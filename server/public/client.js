@@ -1,6 +1,7 @@
 $(ready)
 function ready(){
     $(document).on('submit', '#task-form', addTask)
+    $(document).on('click', '#delete-button', deleteTask)
     renderTasks();
 }
 
@@ -20,6 +21,9 @@ function renderTasks(){
                     <td>${task.task}</td>
                     <td>${task.importance}</td>
                     <td>${task.dueBy}</td>
+                    <td>
+                        <button id="delete-button">Delete</button>
+                    </td>
                 </tr>
             `);
         }
@@ -45,5 +49,22 @@ function addTask(event){
     }).then((response) => {
         console.log(':POST:', response);
         renderTasks();
-    })
+    }).catch((err) => {
+        console.error('POST failed', err); 
+        console.log('POST failed', err)
+    });
+}
+
+
+
+function deleteTask(){
+    console.log('oh fuck');
+    $.ajax({
+        type: 'DELETE',
+        url: `/tasks/${$(this).parents('tr').data('id')}`
+    }).then((res) => {
+        renderTasks();
+    }).catch((err) => {
+        console.log('FAILED:', err);
+    });
 }
