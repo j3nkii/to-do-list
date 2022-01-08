@@ -22,6 +22,9 @@ function renderTasks(){
                     <td>${task.importance}</td>
                     <td>${task.dueBy}</td>
                     <td>
+                        <button id="complete-button">${task.completed}</button>
+                    </td>
+                    <td>
                         <button id="delete-button">Delete</button>
                     </td>
                 </tr>

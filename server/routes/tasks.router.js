@@ -11,7 +11,7 @@ const pool = new pg.Pool({
 
 //Get Tasks endpoint
 tasksRouter.get('/', (req, res) => {
-    let queryText = 'SELECT * FROM "tasks" ORDER BY "importance";';
+    let queryText = 'SELECT * FROM "tasks" WHERE "completed" = FALSE ORDER BY "importance";';
     pool.query(queryText).then(result => {
     res.send(result.rows);
     })

@@ -2,13 +2,14 @@ CREATE TABLE "tasks" (
 	"id" SERIAL PRIMARY KEY,
 	"task" VARCHAR (250) NOT NULL,
 	"importance" VARCHAR (100) NOT NULL,
-	"due-by" DATE,
+	"dueBy" DATE,
+	"completed" BOOLEAN DEFAULT FALSE
 );
 
 INSERT INTO "tasks" 
-	("task", "importance", "due-by") 
+	("task", "importance", "dueBy", "completed") 
 VALUES 
-	('Make Dinner', 'High', 'today'),
-	('Drink beer', 'Very High', 'now');
+	('Make Dinner', 'High', 'today', FALSE),
+	('Drink beer', 'Very High', 'now', FALSE);
 
 SELECT * FROM "tasks";
