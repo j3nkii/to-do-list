@@ -10,9 +10,9 @@ CREATE TABLE "tasks" (
 INSERT INTO "tasks" 
 	("task", "importance", "dueBy", "completed") 
 VALUES 
-	('Make Dinner', 'High', 'today', FALSE),
-	('Eat Dinner', 'Low', 'today', FALSE),
-	('Smoke Crack', 'Urgent', 'today', FALSE),
+	('Make Dinner', 'High', '1999-01-01', FALSE),
+	('Eat Dinner', 'Low', '2020-01-01', FALSE),
+	('Go to Church', 'Urgent', 'today', FALSE),
 	('Make Dinner', 'High', 'today', FALSE),
 	('Drink beer', 'Urgent', 'now', FALSE);
 
