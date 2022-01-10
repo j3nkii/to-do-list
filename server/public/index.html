@@ -4,56 +4,102 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./jquery-3.6.0.min.js"></script>
+
+
+
+<!-- Latest compiled and minified CSS 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+<link rel="stylesheet" href="./vendors/bootstrap.min.css">
+<script src="./vendors/jquery-3.6.0.min.js"></script>
+<script src="./vendors/bootstrap.min.js"></script>
+
+
+    <script src="./dateFormatter.js"></script>
     <script src="./client.js"></script>
     <link rel="stylesheet" href="./styles.css">
     <title>TaskCompletor3000</title>
 </head>
 <body>
-    <h1>TODO List</h1>
-    <form id="task-form">
-        <label for="task-input">Task</label>
-            <input id="task-input" type="text">
-        <label for="task-importance">Importance</label>
-            <select id="task-importance" type="text">
-                <option value="low">Low</option>
-                <option value="standard">Standard</option>
-                <option value="high">High</option>
-                <option value="urgent">Urgent</option>
-        <label for="task-date"></label>
-            <input id="task-date" type="date">
-        <label for="enter-task"></label>
-            <input id="enter-task" type="submit" value="Enter Task">
-    </form>
+
+    <!-- Modal -->
+    <div class="modal" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Task?</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure? This cannot be undone!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button id="taskDeletion" type="button" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="content">
+
+        <div id="user-input">
+            <h1>TODO List</h1>
+            <form id="task-form">
+            <div class="form-group">
+                <label for="task-input">Task</label>
+                    <input class="form-control" id="task-input" type="text" placeholder="Task">
+                <label for="task-importance">Importance</label>
+                    <select class="form-control" id="task-importance" type="text">
+                        <option value="Select One" disabled selected>Select One</option>
+                        <option value="Low">Low</option>
+                        <option value="Standard">Standard</option>
+                        <option value="High">High</option>
+                        <option value="Urgent">Urgent</option>
+                    </select>
+                <label  for="task-date">Due by:</label>
+                    <input class="form-control" id="task-date" type="date">
+                <label for="enter-task"></label>
+                    <input class="form-control btn-success" id="enter-task" type="submit" value="Enter Task">
+            </div>
+            </form>
+        </div>
+
+    <div id="todo-tasks">
     <h2>Tasks TODO</h2>
-    <table>
-        <thead>
-            <tr>
-                <td>Completed</td>
-                <td>Task At Hand</td>
-                <td>Importance</td>
-                <td>Due Date</td>
-                <td>Delete</td>
-            </tr>
-        </thead>
-        <tbody id="taskTable">
+        <table id="uncompleted-task-table" class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <td>Complete</td>
+                    <td>Task At Hand</td>
+                    <td>Importance</td>
+                    <td>Due Date</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody id="taskTable"></tbody>
+        </table>
+    </div>
 
-        </tbody>
-    </table>
-    <h2>DONE Tasks</h2>
-    <table>
-        <thead>
-            <tr>
-                <td>Completed</td>
-                <td>Task At Hand</td>
-                <td>Importance</td>
-                <td>Due Date</td>
-                <td>Delete</td>
-            </tr>
-        </thead>
-        <tbody id="doneTaskTable">
+    <div id="completed-tasks">
+        <h2>DONE Tasks</h2>
+        <table id="completed-task-table"class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <td>Complete</td>
+                    <td>Task At Hand</td>
+                    <td>Importance</td>
+                    <td>Date Completed</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody id="doneTaskTable"></tbody>
+        </table>
+    </div>
 
-        </tbody>
-    </table>
+</div>
 </body>
 </html>
