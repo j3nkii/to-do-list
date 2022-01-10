@@ -13,13 +13,13 @@ You are going to create a 'TO DO' application. This type of application is very 
 
 **Here are the specific components for the challenge:**
 
-* Create a front end experience that allows a user to create a Task.
-* When the Task is created, it should be stored inside of a database (SQL)
-* Whenever a Task is created the front end should refresh to show all tasks that need to be completed.
-* Each Task should have an option to 'Complete' or 'Delete'.
-* When a Task is complete, its visual representation should change on the front end. For example, the background of the task container could change from gray to green. The complete option should be  'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete.
-* Whether or not a Task is complete should also be stored in the database.
-* Deleting a Task should remove it both from the front end as well as the Database.
+* x Create a front end experience that allows a user to create a Task.
+* x When the Task is created, it should be stored inside of a database (SQL)
+* x Whenever a Task is created the front end should refresh to show all tasks that need to be completed.
+* x Each Task should have an option to 'Complete' or 'Delete'.
+* x When a Task is complete, its visual representation should change on the front end. For example, the background of the task container could change from gray to green. The complete option should be  'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete.
+* x Whether or not a Task is complete should also be stored in the database.
+* x Deleting a Task should remove it both from the front end as well as the Database.
 
 ### Styling
 
@@ -47,13 +47,13 @@ For each of your strech goals, you will be practicing git branching. Please refe
 - `feature-styling-bootstrap` 
 
     - [ ]  Add Bootstrap to the front end and style it up!
-      -  Buttons -- make the creation buttons and completion buttons green and the delete red.
-      -  Inputs -- make your text inputs styled in the bootstrap way
+      -  x Buttons -- make the creation buttons and completion buttons green and the delete red.
+      -  x Inputs -- make your text inputs styled in the bootstrap way
       -  Responsive -- make your app responsive to different screen sizes -- check out the [Layout](https://getbootstrap.com/docs/4.1/layout/overview/) section
 
 - `feature-confirm-delete`
 
-    - [ ]  In whatever fashion you would like, create an 'are you sure: yes / no' option when deleting a task.
+    - [x]  In whatever fashion you would like, create an 'are you sure: yes / no' option when deleting a task.
         - Some styled options are [Bootstrap Modal](https://getbootstrap.com/docs/4.0/components/modal/) or [Sweet Alerts](https://sweetalert.js.org/guides/): Use the CDN option.
 
 - `feature-ordering-task-query` 
@@ -62,4 +62,4 @@ For each of your strech goals, you will be practicing git branching. Please refe
     
 - `feature-time-completed` 
 
-    - [ ]  Add the ability to record when a task was completed. Show the completed date on the frontend in a pretty format.
+    - [x]  Add the ability to record when a task was completed. Show the completed date on the frontend in a pretty format.

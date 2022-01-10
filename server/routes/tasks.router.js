@@ -11,12 +11,12 @@ const pool = new pg.Pool({
 
 //Get Tasks endpoint
 tasksRouter.get('/', (req, res) => {
-    let queryText = 'SELECT * FROM "tasks" ORDER BY "importance";';
+    //add id? if else statment done / not done
+    let queryText = 'SELECT * FROM "tasks" ORDER BY "dueBy" DESC;';
     pool.query(queryText).then(result => {
     res.send(result.rows);
     })
     .catch(error => {
-    console.log('error getting books', error);
     res.sendStatus(500);
     });
 });
@@ -33,7 +33,6 @@ tasksRouter.post('/', (req, res) => {
         req.body.package.importance,
         req.body.package.dueBy
     ];
-    console.log(queryParams);
     pool.query(queryText, queryParams)
         .then((bdRes) => {
             res.sendStatus(201) //created
@@ -46,13 +45,29 @@ tasksRouter.post('/', (req, res) => {
 
 
 tasksRouter.delete('/:id', (req, res) => {
-    console.log(req.params)
+    console.log('delte');
     const queryText = `DELETE FROM tasks WHERE id = $1 `; //SQL code here, use $1, $2 in conjunction with the query params
     let queryParams = [req.params.id];
     pool.query(queryText, queryParams).then((dbRes) => {
         res.sendStatus(204);
     }).catch((err) => {
         console.log('DELETE failed:', err);
+    })
+})
+
+
+
+tasksRouter.put('/:id', (req, res) => {
+    const queryText = `UPDATE tasks SET completed = $1, "dateCompleted" = $2 WHERE id = $3`
+    let queryParams = [
+        req.body.completed,
+        req.body.dateCompleted,
+        req.params.id
+    ];
+    pool.query(queryText, queryParams).then((dbRes) => {
+        res.sendStatus(201)
+    }).catch((err) => {
+        console.log(err);
     })
 })
 
